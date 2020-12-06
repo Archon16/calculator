@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>calculator</title>
+<script>
+	var flag=0;
+	function getvalue(n)
+	{
+		//alert(n);
+		document.getElementById('result').value+=n;
+		if((n=='+')||(n=='-')||(n=='*')||(n=='/')||(n=='^'))
+		{
+		flag=1;
+		document.getElementById('opr').value=n;
+		exit;
+		}
+		
+		if(flag==0)
+		{
+		document.getElementById('op1').value+=n;
+		}
+		if(flag==1)
+		{
+			document.getElementById('op2').value+=n;
+		}
+		
+	}
+	function calculateAnswer(n)
+	{
+		operator=document.getElementById('opr').value;
+		op1=document.getElementById('op1').value;
+		op2=document.getElementById('op2').value;
+		switch(operator)
+		{
+			case '-':document.getElementById("result").value = op1 - op2;
+				    break;
+			case '+':document.getElementById("result").value = parseFloat(op1) + parseFloat(op2);
+                    break;
+            case '*':document.getElementById("result").value = op1 * op2;
+                    break;
+            case '/':document.getElementById("result").value = op1 / op2;
+                    break;
+			case '^':document.getElementById("result").value = op1**op2;
+                    break;
+		}
+	}
+
+
+</script>
+</head>
+<body bgcolor="#98ae88">
+	<center><h1>CALCULATOR USING JAVASCRIPT</h1></center><br><br>
+	
+	<input type="text" name="op1" id="op1" />
+	<input type="text" name="opr" id="opr" />
+	<input type="text" name="op2" id="op2" />
+	
+	
+	<table align="center" cellpadding="10px">
+	<tr>
+		<td colspan=5><input type="text" name="result" id="result" style="text-align:right;width:100%;height:50px"/></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="1" style="width:50px;height:50px" onclick="javascript:getvalue('1')"/></td>
+		<td><input type="button" value="2" style="width:50px;height:50px" onclick="javascript:getvalue('2')"/></td>
+		<td><input type="button" value="3" style="width:50px;height:50px" onclick="javascript:getvalue('3')"/></td>
+		<td><input type="button" value="-" style="width:50px;height:50px" onclick="javascript:getvalue('-')"/></td>
+		<td><input type="button" value="*" style="width:50px;height:50px" onclick="javascript:getvalue('*')"/></td>
+	</tr>	
+	<tr>
+		<td><input type="button" value="4" style="width:50px;height:50px" onclick="javascript:getvalue('4')"/></td>
+		<td><input type="button" value="5" style="width:50px;height:50px" onclick="javascript:getvalue('5')"/></td>
+		<td><input type="button" value="6" style="width:50px;height:50px" onclick="javascript:getvalue('6')"/></td>
+		<td><input type="button" value="+" style="width:50px;height:50px" onclick="javascript:getvalue('+')"/></td>
+		<td><input type="button" value="^" style="width:50px;height:50px" onclick="javascript:getvalue('^')"/></td>
+	</tr>	
+	<tr>
+		<td><input type="button" value="7" style="width:50px;height:50px" onclick="javascript:getvalue('7')"/></td>
+		<td><input type="button" value="8" style="width:50px;height:50px" onclick="javascript:getvalue('8')"/></td>
+		<td><input type="button" value="9" style="width:50px;height:50px" onclick="javascript:getvalue('9')"/></td>
+		<td><input type="button" value="/" style="width:50px;height:50px" onclick="javascript:getvalue('/')"/></td>
+		<td><input type="button" value="=" style="width:50px;height:50px" onclick="javascript:calculateAnswer()"/></td>
+	</tr>	
+
+
+
+</body>
+</html>
